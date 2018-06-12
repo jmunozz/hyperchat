@@ -1,7 +1,9 @@
 const Sequelize = require('sequelize');
 const db  = require('../db');
 
-// Create Message model.
+/**
+ * Create Message Model.
+ */
 const Message = db.define('Messages', {
     id: {type: Sequelize.INTEGER,  primaryKey: true, autoIncrement: true },
     message: Sequelize.TEXT,

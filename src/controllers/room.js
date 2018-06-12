@@ -1,6 +1,9 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
 
+/**
+ * Get All Rooms.
+ */
 const getAllRooms = () => db.query('SELECT room as name, COUNT(*) as messages FROM Messages GROUP BY name', {
         type: Sequelize.QueryTypes.SELECT,
     });

@@ -1,5 +1,5 @@
 const { GraphQLServer } = require('graphql-yoga')
-const Controllers = require('./controlers');
+const Controllers = require('./controllers');
 
 /**
  * Resolvers
