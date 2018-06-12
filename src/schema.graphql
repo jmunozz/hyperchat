@@ -1,0 +1,21 @@
+type Message {
+    id: Int!
+    message: String!
+    userHash: String!
+    room: String!
+    createdAt: String!
+}
+
+type Room {
+    name: String!
+    messages: Int!
+}
+
+type Mutation {
+  createMessage(message: String!, userHash: String!, room: String!): Message!
+}
+
+type Query {
+    messages: [Message!]
+    rooms: [Room!]
+}

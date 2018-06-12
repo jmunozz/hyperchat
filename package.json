@@ -1,0 +1,24 @@
+{
+  "name": "hyperchat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmunozz/hyperchat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmunozz/hyperchat/issues"
+  },
+  "homepage": "https://github.com/jmunozz/hyperchat#readme",
+  "dependencies": {
+    "graphql-yoga": "^1.14.7",
+    "mysql2": "^1.5.3",
+    "sequelize": "^4.37.10"
+  }
+}
