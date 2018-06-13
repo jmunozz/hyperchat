@@ -9,7 +9,7 @@ const createMessage = ({ message, room, userHash }) => {
         message, 
         room, 
         userHash,
-    }).save();
+    }).save()
 }
 /**
  * Get All Messages.

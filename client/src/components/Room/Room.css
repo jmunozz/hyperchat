@@ -1,0 +1,30 @@
+.selected {
+    background-color: #1F9A8B;
+}
+
+.roomsbox {
+    background-color: #282D40;
+    font-size: 1.2em;
+    color:white;
+}
+
+.roomsbox div:first-child {
+    line-height: 2.5em;
+    margin-top: 20px;
+    margin-bottom:10px;
+    border-bottom: solid white 1px;
+}
+
+ul {
+    padding-left: 0px;
+}
+
+.roomsbox span {
+    margin-left: 10px;
+}
+
+.addroombox {
+    position: absolute;
+    bottom:0;
+    margin-bottom:15px;
+}

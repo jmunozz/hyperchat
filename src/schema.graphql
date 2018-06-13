@@ -19,3 +19,7 @@ type Query {
     messages: [Message!]
     rooms: [Room!]
 }
+
+type Subscription {
+    messageCreated: Message!
+}

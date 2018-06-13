@@ -1,0 +1,36 @@
+.messagesbox {
+    position:absolute;
+    top:20;
+    height:70%;
+    overflow: scroll;
+    padding-top:20px;
+    padding-bottom: 20px;
+    padding-right:10%;
+
+}
+
+.messagesbox span {
+    float:right;
+    color:lightgray;
+    font-size:smaller;
+}
+
+.contentbox div:first-child {
+    line-height: 2.5em;
+    margin-top: 20px;
+    font-weight:500;
+    font-size:1.7em;
+    color:darkgray;
+    border-bottom: solid darkgray 1px;
+    margin-bottom: 10px;
+}
+
+.chatbox {
+    position: absolute;
+    bottom:0;
+
+}
+
+.chatbox textarea {
+    width:100%;
+}
