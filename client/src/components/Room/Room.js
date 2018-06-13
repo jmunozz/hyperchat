@@ -15,7 +15,6 @@ class Room extends Component {
 
     setRooms(rooms) {
         const newRooms = [...this.state.rooms, ...rooms];
-        console.log(newRooms);
         this.setState({
             rooms: newRooms
         })
@@ -25,7 +24,8 @@ class Room extends Component {
         event.preventDefault();
         const room = event.target.room.value;
         event.target.room.value = '';
-        this.setRooms([{name:room, messages:0}])
+        if (!this.state.rooms.find(r => r.name == room))
+            this.setRooms([{name:room, messages:0}])
         this.props.selectRoom(room);
     }
 
