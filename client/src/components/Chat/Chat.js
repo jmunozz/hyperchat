@@ -59,14 +59,15 @@ class MessageCreated extends React.Component {
         super(props);
         this.state = {
             messages: this.props.messages,
+            refresh: false,
         }
     }
 
     render() {
         return (
-            <Subscription subscription={subscribeCreatedMessage} >
+            <Subscription subscription={subscribeCreatedMessage} shouldResubscribe={false} >
                 {({data, loading, error}) => {
-                    if (data) {
+                    if (data && !this.state.refresh) {
                         const { messageCreated } = data;
                         this.state.messages = [...this.state.messages, messageCreated]
                         return <MessagesDisplay 
@@ -74,13 +75,19 @@ class MessageCreated extends React.Component {
                             selectedRoom={this.props.selectedRoom} />
                     }
                     else {
+                        this.state.refresh = false;
                         return <MessagesDisplay 
-                            messages={this.props.messages} 
+                            messages={this.state.messages} 
                             selectedRoom={this.props.selectedRoom} />
                     }
                 }}
             </Subscription>
         )
+    }
+
+    componentWillUpdate() {
+        // Skip messages concatenation if it is a component update.
+        this.state.refresh = true
     }
 }
 /**
