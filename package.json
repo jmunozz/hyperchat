@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install": "concurrently \"npm install\" \"(cd client && yarn install)\"",
+    "server": "node src/index.js",
+    "client": "(cd client && yarn start)",
+    "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -17,6 +20,7 @@
   },
   "homepage": "https://github.com/jmunozz/hyperchat#readme",
   "dependencies": {
+    "concurrently": "^3.5.1",
     "graphql-yoga": "^1.14.7",
     "mysql2": "^1.5.3",
     "sequelize": "^4.37.10"
