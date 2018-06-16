@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "install": "npm install && (cd client && yarn install)",
+    "build": "npm install && (cd client && npm install)",
     "server": "node src/index.js",
     "client": "(cd client && yarn start)",
     "start": "concurrently \"npm run server\" \"npm run client\""
