@@ -16,7 +16,7 @@ type Mutation {
 }
 
 type Query {
-    messages: [Message!]
+    messages: [Message!]!
     rooms: [Room!]
 }
 
