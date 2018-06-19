@@ -10,7 +10,7 @@ const createMessage = (root, args, context) => {
   return Message.create({
     message,
     room,
-    userHashed,
+    userHash: userHashed,
   }).then((result) => {
     pubsub.publish(CHANNEL_MESSAGE_CREATE, { messageCreated: message.dataValues });
     return result;
