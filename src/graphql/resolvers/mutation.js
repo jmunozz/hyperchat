@@ -11,9 +11,9 @@ const createMessage = (root, args, context) => {
     message,
     room,
     userHash: userHashed,
-  }).then((result) => {
-    pubsub.publish(CHANNEL_MESSAGE_CREATE, { messageCreated: message.dataValues });
-    return result;
+  }).then((messageCreated) => {
+    pubsub.publish(CHANNEL_MESSAGE_CREATE, { messageCreated: messageCreated.dataValues });
+    return messageCreated;
   });
 };
 
