@@ -13,19 +13,17 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 
 import './index.css';
 import App from './components/App/App';
-import registerServiceWorker from './registerServiceWorker';
-
 
 const cache = new InMemoryCache();
 
 // Create an http link:
 const httpLink = new HttpLink({
-    uri: 'http://localhost:4000'
+    uri: `http://${process.env.REACT_APP_SERVER_HOST}:${process.env.REACT_APP_SERVER_PORT}`
   });
   
   // Create a WebSocket link:
   const wsLink = new WebSocketLink({
-    uri: `ws://localhost:4000/`,
+    uri: `ws://${process.env.REACT_APP_SERVER_HOST}:${process.env.REACT_APP_SERVER_PORT}/`,
     options: {
       reconnect: true
     }
@@ -55,4 +53,3 @@ ReactDOM.render(
         <App />
     </ApolloProvider>,
 document.getElementById('root'));
-registerServiceWorker();

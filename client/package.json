@@ -15,6 +15,7 @@
     "subscriptions-transport-ws": "^0.9.10"
   },
   "scripts": {
+    "start:prod": "serve -s build -l 4000",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

@@ -1,11 +1,9 @@
 # hyperchat
 
-## Installation
+## Run locally
 
-> npm build
+Client will be available on `http://localhost:4000`.
 
-## Start
-
-> npm start
-
-(if does not work, install manually server and client)
+```
+docker-compose up
+```
