@@ -1,6 +1,0 @@
-{
-    "host": "db.cljfjlkjrwzx.eu-west-1.rds.amazonaws.com",
-    "user": "admin",
-    "password": "mypassword", 
-    "database": "hyperchat"
-}
