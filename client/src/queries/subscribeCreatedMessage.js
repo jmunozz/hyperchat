@@ -6,7 +6,7 @@ subscription  {
     messageCreated {
         id
         message
-        userHash
+        username
         room
         createdAt
     }

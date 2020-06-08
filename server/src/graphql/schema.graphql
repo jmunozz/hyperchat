@@ -1,7 +1,7 @@
 type Message {
     id: Int!
     message: String!
-    userHash: String!
+    username: String!
     room: String!
     createdAt: String!
 }
@@ -12,7 +12,7 @@ type Room {
 }
 
 type Mutation {
-  createMessage(message: String!, userHash: String!, room: String!): Message!
+  createMessage(message: String!, username: String!, room: String!): Message!
 }
 
 type Query {

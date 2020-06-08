@@ -18,6 +18,6 @@ const server = new GraphQLServer({
 
 server.start(async () => {
   console.log('Server is running on http://localhost:4000');
-  await db.sync({ force: false });
+  await db.sync({ force: true });
 });
 

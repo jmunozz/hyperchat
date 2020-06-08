@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   componentWillMount() {
-    this.state.userHash = null;
+    this.state.username = null;
     this.state.selectedRoom = 'general';
   }
 
@@ -26,22 +26,22 @@ class App extends Component {
     this.setState({ selectedRoom: name });
   }
 
-  updateUserHash(event) {
+  updateUsername(event) {
     event.preventDefault();
-    this.setState({ userHash: event.target.userHash.value });
+    this.setState({ username: event.target.username.value });
   }
 
   render() {
     return (
-        <div className="App col-md-12">
-          {!this.state.userHash && <Modal updateUserHash={this.updateUserHash.bind(this)} />}
+        <div className="row full-height">
+          {!this.state.username && <Modal updateUsername={this.updateUsername.bind(this)} />}
           <Room 
             selectRoom={this.selectRoom.bind(this)} 
             selectedRoom={this.state.selectedRoom}
           />
           <Chat 
             selectedRoom={this.state.selectedRoom}
-            userHash={this.state.userHash}
+            username={this.state.username}
           />
         </div>
     );

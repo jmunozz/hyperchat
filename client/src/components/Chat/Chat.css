@@ -1,12 +1,38 @@
-.messagesbox {
-    position:absolute;
-    top:20;
-    height:70%;
+#messagesbox {
     overflow: scroll;
-    padding-top:20px;
-    padding-bottom: 20px;
-    padding-right:10%;
+}
 
+textarea:focus {
+    outline: none !important;
+  }
+
+textarea::placeholder {
+    color: lightgray;
+}
+
+textarea {
+    height: 100%;
+    width: 100%;
+    padding:10px;
+    border-radius:5px;
+    border: 1px solid gray;
+    font-weight: 300;
+}
+
+.msg:hover {
+    background-color: whitesmoke;
+}
+
+.h-10 {
+    height: 10% !important;
+}
+
+.mh-20 {
+    max-height: 20% !important;
+}
+
+.h-70 {
+    height: 70% !important;
 }
 
 .messagesbox span {
@@ -15,7 +41,13 @@
     font-size:smaller;
 }
 
-.contentbox div:first-child {
+.msg .content {
+    word-wrap: break-word;
+    overflow: hidden;
+    font-weight: 300;
+}
+
+/* .contentbox div:first-child {
     line-height: 2.5em;
     margin-top: 20px;
     font-weight:500;
@@ -23,14 +55,4 @@
     color:darkgray;
     border-bottom: solid darkgray 1px;
     margin-bottom: 10px;
-}
-
-.chatbox {
-    position: absolute;
-    bottom:0;
-
-}
-
-.chatbox textarea {
-    width:100%;
-}
+} */

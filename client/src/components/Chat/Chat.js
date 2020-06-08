@@ -5,6 +5,7 @@ import { Mutation } from "react-apollo";
 import fetchMessagesQuery from '../../queries/fetchMessages';
 import postMessageMutation from '../../queries/postMessage';
 import subscribeCreatedMessage  from '../../queries/subscribeCreatedMessage';
+import { displayDate } from '../../helpers/commons';
 
 import './Chat.css';
 
@@ -14,11 +15,17 @@ class Chat extends Component {
     render() {
         const selectedRoom = this.props.selectedRoom || ''
         return (
-            <div className="col-md-9 contentbox">
-                <div className="col-md-12">{`Room: #${selectedRoom}`}</div>
-                <FetchMessages selectedRoom={this.props.selectedRoom} />
-                <AddMessage userHash={this.props.userHash} selectedRoom={this.props.selectedRoom} />
-            </div>
+            <div className="col-md-9 full-height">
+                <div class="h-10 row">
+                    <div className="col-md-12" style={{fontWeight:'900', paddingTop:10, borderBottom: '1px solid whitesmoke'}}>{`#${selectedRoom}`}</div>
+                </div>
+                <div class="h-70 row">
+                    <FetchMessages selectedRoom={this.props.selectedRoom} />
+                </div>
+                <div class="mh-20 row">
+                    <AddMessage username={this.props.username} selectedRoom={this.props.selectedRoom} />
+                </div>
+            </div>  
         );
     }
 }
@@ -96,14 +103,28 @@ class MessageCreated extends React.Component {
 class MessagesDisplay extends React.Component {
     render() {
         return (
-            <div id="messagesbox" className='col-md-12 messagesbox'>
-                <ul>
-                    {this.props.messages.filter((message) => {
-                        return message.room === this.props.selectedRoom;
-                    }).map((message) => {
-                        return <li key={message.id}>{message.message}<span>{message.createdAt}</span></li>
-                    })}
-                </ul>
+        <div id="messagesbox" class="full-height">
+            {
+                this.props.messages.filter((message) => {
+                    return message.room === this.props.selectedRoom;
+                }).map((message) => {
+                        return (
+                            <div className="col-sm-12 msg" key={message.id}>
+                                <div className="row">
+                                    <div className='col-sm-auto d-inline align-text-bottom'>
+                                        <span className='align-baseline' style={{fontWeight:'bold'}}>{message.username}</span>
+                                        <span className='align-baseline' style={{fontSize:'0.9em', color:'lightgray', marginLeft: '10px' }}>{displayDate(message.createdAt)}</span>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className='col-sm content'>
+                                        {message.message}
+                                    </div>
+                                </div>
+                            </div>
+                            );
+                        })
+                    }
             </div>
         )
     }
@@ -123,20 +144,19 @@ class AddMessage extends React.Component {
         return (
             <Mutation mutation={postMessageMutation}>
                 {(postMessage, { data }) => (
-                    <div className="col-md-12 chatbox">
-                        <form>
-                            <label style={{display:'block', textAlign: 'center'}}>
-                                Ecrivez votre message ici...
-                            </label>
+                    <div className="col-md-12 full-height">
+                        <form class="full-height p-3">
                             <textarea 
-                                disabled={!this.props.userHash || !this.props.selectedRoom}
-                                autoFocus={!this.props.userHash || !this.props.selectedRoom}
+                                style={{resize: 'none', outline: 'none' }}
+                                disabled={!this.props.username || !this.props.selectedRoom}
+                                autoFocus={!this.props.username || !this.props.selectedRoom}
+                                placeholder='Écrivez votre message ici'
                                 onKeyPress={(event) => {
                                     if (event.charCode === 13) {
                                         event.preventDefault();
                                         postMessage({ variables: {
                                             message: event.target.value, 
-                                            userHash: this.props.userHash,
+                                            username: this.props.username,
                                             room: this.props.selectedRoom,
                                         }});
                                         event.target.value = '';

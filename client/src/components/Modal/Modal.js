@@ -8,10 +8,10 @@ class Modal extends React.Component {
         return (
             <div className="full">
                     <h1 id="title"> HYPERCHAT </h1>
-                    <form onSubmit={this.props.updateUserHash}>
+                    <form onSubmit={this.props.updateUsername}>
                         <label style={{textAlign:'center'}}> Enter a secret name</label>
-                        <input type="password" name="userHash" class="form-control"/>
-                        <button type="submit" value="Submit" className="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="modalUserHash">Submit</button>
+                        <input type="password" name="username" class="form-control"/>
+                        <button type="submit" value="Submit" className="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="modalUsername">Submit</button>
                     </form>
             </div>
         )
