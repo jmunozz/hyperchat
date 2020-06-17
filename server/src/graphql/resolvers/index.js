@@ -4,11 +4,12 @@ const Subscription = require('./subscription');
 
 module.exports = {
   Query: {
-    messages: Query.getAllMessages,
+    messages: Query.getRoomMessages,
     rooms: Query.getAllRooms,
   },
   Mutation: {
     createMessage: Mutation.createMessage,
+    createRoom: Mutation.createRoom,
   },
   Subscription: {
     messageCreated: {

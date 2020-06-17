@@ -2,24 +2,33 @@ type Message {
     id: Int!
     message: String!
     username: String!
-    room: String!
+    room: Room!
     createdAt: String!
 }
 
+input MessageInput {
+    message: String!
+    username: String!
+    roomId: Int!
+}
+
 type Room {
+    id: Int!
     name: String!
-    messages: Int!
+    createdAt: String!
 }
 
 type Mutation {
-  createMessage(message: String!, username: String!, room: String!): Message!
+  createMessage(input: MessageInput): Message
+  createRoom(name: String!): Room!
+
 }
 
 type Query {
-    messages: [Message!]!
+    messages(roomId: Int!): [Message!]!
     rooms: [Room!]
 }
 
 type Subscription {
-    messageCreated: Message!
+    messageCreated(roomId: Int!): Message!
 }

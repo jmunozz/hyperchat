@@ -3,23 +3,49 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "apollo-boost": "^0.1.7",
-    "apollo-cache-inmemory": "^1.2.2",
-    "apollo-link-ws": "^1.0.8",
+    "@apollo/react-hooks": "^3.1.5",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "apollo-cache-inmemory": "^1.6.6",
+    "apollo-client": "^2.6.10",
+    "apollo-link": "^1.2.14",
+    "apollo-link-error": "^1.1.13",
+    "apollo-link-http": "^1.5.17",
+    "apollo-link-ws": "^1.0.20",
+    "bootstrap": "^4.5.0",
     "graphql": "^0.13.2",
-    "graphql-tag": "^2.9.2",
+    "graphql-tag": "^2.10.3",
     "moment": "^2.26.0",
-    "react": "^16.4.0",
-    "react-apollo": "^2.1.4",
-    "react-dom": "^16.4.0",
-    "react-scripts": "1.1.4",
-    "subscriptions-transport-ws": "^0.9.10"
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "subscriptions-transport-ws": "^0.9.16",
+    "typescript": "~3.7.2"
   },
   "scripts": {
     "start:prod": "serve -s build -l 4000",
+    "start:dev": "REACT_APP_SERVER_HOST=localhost REACT_APP_SERVER_PORT=8080 react-scripts start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

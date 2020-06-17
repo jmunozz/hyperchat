@@ -1,14 +1,16 @@
-const Sequelize = require('sequelize');
-const Message = require('../../models/Message');
-const db = require('../../db');
+// import { Message} from '../../models/Message';
+// import { Room } from '../../models/Room';
+const Room = require('../../models/Room').Room;
+const Message = require('../../models/Message').Message;
 
-const getAllMessages = () => Message.findAll();
+const getRoomMessages = (root, args, context) => {
+  const { roomId } = args;
+  return Message.findAll({ include: { as: 'room', model: Room }, where: { roomId } })
+};
 
-const getAllRooms = () => db.query('SELECT room as name, COUNT(*) as messages FROM Messages GROUP BY name', {
-  type: Sequelize.QueryTypes.SELECT,
-});
+const getAllRooms = () => Room.findAll();
 
 module.exports = {
-  getAllMessages,
+  getRoomMessages,
   getAllRooms,
 };
